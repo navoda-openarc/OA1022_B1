@@ -1,4 +1,1 @@
-<?php
-echo "Login Page";
-
-?>
+Log in page

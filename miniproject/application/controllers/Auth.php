@@ -16,7 +16,7 @@
         }
 
         public function login($msg = ''){
-            $this->load->view('auth/login');
+            "abc";
         }
 
         public function validate(){
