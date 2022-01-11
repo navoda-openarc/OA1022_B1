@@ -1,6 +1,6 @@
 RewriteEngine on
 
-RewriteBase /oa1022/miniproject/
+RewriteBase /oa1022/OA1022_B1/miniproject/
 
 RewriteCond $1 !^(index\.php|assets|image|js|css|uploads|favicon.png)
 RewriteCond %(REQUEST_FILENAME) !-f

@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/oa1022/miniproject/';
+$config['base_url'] = 'http://localhost/oa1022/OA1022_B1/miniproject/';
 
 /*
 |--------------------------------------------------------------------------
