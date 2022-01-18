@@ -33,9 +33,36 @@
                     //Check the Password
                     if($result[0]['password'] == $password){
                         //Success
-                        echo "Passwords matches";
+                        //echo "Passwords matches";
                         
-                        //18th <- Access User Roles
+                        $user_data = array(
+                            'username' => $result[0]['u_name'],
+                            'firstname' => $result[0]['f_name'],
+                            'lastname' => $result[0]['l_name']
+                        );
+
+                        //SELECT `privileges`.`privilege_name`, `user_role_privileges`.`status` 
+                        //FROM `privileges` JOIN `user_role_privileges` 
+                        //ON `privileges`.`privilege_id` = `user_role_privileges`.`privilege_id`
+
+                        $this->db->select('privilege_alias,status');
+                        $this->db->from('privileges');
+                        $this->db->join('user_role_privileges', 'privileges.privilege_id = user_role_privileges.privilege_id');
+                        
+                        $query = $this->db->get();
+
+                        $permissions = array();
+
+                        foreach($query->result_array() as $row){
+                            $permissions[$row['privilege_alias']] = $row['status'];
+                        }
+
+                        $user_data['permissions'] = $permissions;
+
+                        //Creating the session
+                        $this->session->set_userdata($user_data);
+
+                        redirect('home');
                     }
                     else{
                         redirect(base_url() . 'auth/login/invalid');
@@ -51,6 +78,8 @@
         }
 
         public function logout(){
-
+            $user_data = array('username','firstname','lastname','permissions');
+            $this->session->unset_userdata($user_data);
+            redirect('Auth/login');
         }
     }
