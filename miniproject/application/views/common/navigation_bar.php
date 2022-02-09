@@ -18,7 +18,7 @@
                         <!-- Users sub-menu -->
                         <div class="collapse" id="collapseUsers" data-bs-parent="#accordionSidenav" style="">
                             <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavUsersMenu">
-                                <a class="nav-link" href="">Create</a>  x
+                                <a class="nav-link" href="<?= base_url() . "user/create" ?>">Create</a>
                             </nav>
                         </div>
                     </div>
@@ -26,7 +26,9 @@
                 <div class="sidenav-footer">
                     <div class="sidenav-footer-content">
                         <div class="sidenav-footer-subtitle">Logged in as</div>
-                        <div class="sidenav-footer-title">Firstname Lastname</div>
+                        <div class="sidenav-footer-title">
+                        <?php echo $this->session->userdata('firstname') . " " . $this->session->userdata('lastname'); ?>
+                        </div>
                     </div>
                 </div>
             </nav>

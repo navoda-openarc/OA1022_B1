@@ -8,7 +8,7 @@
                 <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
         </button>
-        <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="index.html">SB Admin Pro</a>
+        <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="<?= base_url() ?>home">SIMS</a>
         <form class="form-inline me-auto d-none d-lg-block me-3">
             <div class="input-group input-group-joined input-group-solid">
                 <input class="form-control pe-0" type="search" placeholder="Search" aria-label="Search">
@@ -28,8 +28,10 @@
                     <h6 class="dropdown-header d-flex align-items-center">
                         <img class="dropdown-user-img" src="<?= assets_url() ?>build/images/profile.png">
                         <div class="dropdown-user-details">
-                            <div class="dropdown-user-details-name">Valerie Luna</div>
-                            <div class="dropdown-user-details-email">vluna@aol.com</div>
+                            <div class="dropdown-user-details-name">
+                                <?php echo $this->session->userdata('firstname') . " " . $this->session->userdata('lastname'); ?>
+                            </div>
+                            <div class="dropdown-user-details-email"><?= "@" . $this->session->userdata('username')?></div>
                         </div>
                     </h6>
                     <div class="dropdown-divider"></div>

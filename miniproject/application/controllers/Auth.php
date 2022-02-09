@@ -36,6 +36,7 @@
                         //echo "Passwords matches";
                         
                         $user_data = array(
+                            'u_id' => $result[0]['u_id'],
                             'username' => $result[0]['u_name'],
                             'firstname' => $result[0]['f_name'],
                             'lastname' => $result[0]['l_name']
@@ -78,7 +79,7 @@
         }
 
         public function logout(){
-            $user_data = array('username','firstname','lastname','permissions');
+            $user_data = array('u_id','username','firstname','lastname','permissions');
             $this->session->unset_userdata($user_data);
             redirect('Auth/login');
         }
