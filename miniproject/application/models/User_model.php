@@ -37,6 +37,50 @@
                 return array();
             }
         }
+
+        function createUser($record){
+            $data = array(
+                'u_name' => $record['username'],
+                'f_name' => $record['firstname'],
+                'l_name' => $record['lastname'],
+                'age' => $record['age'],
+                'status' => 1,
+                'password' => sha1($record['password']),
+                'last_logged_timestamp' => '0000-00-00 00:00:00',
+                'user_role' => $record['usertype']
+            );
+            
+            $query = $this->db->insert('user',$data);
+
+            return $this->db->insert_id();
+        }
+
+        function getUsers($fields = array()){
+            $count = count($fields);
+
+            if($count > 0){
+                $fieldsList = "";
+                for($i = 0; $i < $count; $i++){
+                    $fieldsList .= "`". $fields[$i] . "`";
+                    if($i < $count-1){
+                        $fieldsList .= ",";
+                    }
+                }
+                $this->db->select($fieldsList);
+                $this->db->from('user');
+                $query = $this->db->get();
+
+                if($query && $query->num_rows() > 0){
+                    return $query->result_array();
+                }
+                else{
+                    return array();
+                }
+            }
+            else{
+                return array();
+            }
+        }
     }
 
 ?>

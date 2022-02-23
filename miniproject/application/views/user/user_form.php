@@ -24,39 +24,39 @@
                     <div class="card mb-4">
                         <div class="card-header">Account Details</div>
                         <div class="card-body">
-                            <form>
+                            <form method="POST" action="<?= base_url();?>user/process/create">
                                 <div class="mb-3">
                                     <label class="small mb-1" for="inputUsername">Username</label>
-                                    <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username"/>
+                                    <input class="form-control" id="inputUsername" name="inputUsername" type="text" placeholder="Enter your username"/>
                                 </div>
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputFirstname">First Name</label>
-                                        <input class="form-control" id="inputFirstname" type="text" placeholder="John"/>
+                                        <input class="form-control" id="inputFirstname" name="inputFirstname" type="text" placeholder="John"/>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastname">Last Name</label>
-                                        <input class="form-control" id="inputLastname" type="text" placeholder="Doe"/>
+                                        <input class="form-control" id="inputLastname" name="inputLastname" type="text" placeholder="Doe"/>
                                     </div>
                                 </div>
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputPassword">Password</label>
-                                        <input class="form-control" id="inputPassword" type="password" placeholder="Password"/>
+                                        <input class="form-control" id="inputPassword" name="inputPassword" type="password" placeholder="Password"/>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputRePassword">Re-enter Password</label>
-                                        <input class="form-control" id="inputRePassword" type="password" placeholder="Re-Password"/>
+                                        <input class="form-control" id="inputRePassword" name="inputRePassword" type="password" placeholder="Re-Password"/>
                                     </div>
                                 </div>
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputAge">Age</label>
-                                        <input class="form-control" id="inputAge" type="password" placeholder="Age"/>
+                                        <input class="form-control" id="inputAge" name="inputAge" type="text" placeholder="Age"/>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputUser">User Type</label>
-                                        <select class="form-control" id=inputUser">
+                                        <select class="form-control" id=inputUser" name="inputUser">
                                             <option value="0" selected>Select</option>
                                             <?php
                                                 foreach ($userTypes as $userType) {
